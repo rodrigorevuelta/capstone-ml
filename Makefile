@@ -5,23 +5,18 @@
 # app.py should pass pylint
 # (Optional) Build a simple integration test
 
-setup:
-	# Create python virtualenv & source it
-	# source ~/.devops/bin/activate
+setup:  # Create python virtualenv & source it
 	python3 -m venv ~/.devops
-
-install:
-	# This should be run from inside a virtualenv
+	source ~/.devops/bin/activate
+install:# This should be run from inside a virtualenv
 	pip install --upgrade pip &&\
 		pip install -r requirements.txt
 
-test:
-	# Additional, optional, tests could go here
+test:	# Additional, optional, tests could go here
 	python -m pytest -vv --cov=myrepolib tests/*.py
 	python -m pytest --nbval notebook.ipynb
 
-lint:
-	# See local hadolint install instructions:   https://github.com/hadolint/hadolint
+lint:	# See local hadolint install instructions:   https://github.com/hadolint/hadolint
 	# This is linter for Dockerfiles
 	hadolint Dockerfile
 	# This is a linter for Python source code linter: https://www.pylint.org/
